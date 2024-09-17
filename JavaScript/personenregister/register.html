@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="register.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Persoonsgegevens</h1>
-        <div id="gegevens">
-        </div>
+    <h1>Persoonsgegevens</h1>
+    <div>
+        <label for="leeftijd">Leeftijd:</label>
+        <input type="number" id="leeftijd" name="leeftijd">
+        <button id="filterButton">Filter</button>
     </div>
+    <div id="gegevens"></div>
     <script src="register.js"></script>
 </body>
 </html>

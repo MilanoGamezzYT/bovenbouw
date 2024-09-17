@@ -1,3 +1,10 @@
+document.getElementById('filterButton').addEventListener('click', () => {
+    const leeftijd = document.getElementById('leeftijd').value;
+    filterLeeftijd(leeftijd, personenData);
+});
+
+let personenData = [];
+
 function laadGegevens() {
     fetch('opdracht2_bijlage.json')
         .then(response => {
@@ -7,7 +14,8 @@ function laadGegevens() {
             return response.json();
         })
         .then(data => {
-            toonGegevens(data);
+            personenData = data;
+            toonGegevens(personenData);
         })
         .catch(error => {
             console.error('Fout bij het laden van JSON:', error);
@@ -32,6 +40,11 @@ function toonGegevens(personenData) {
     });
 
     gegevensDiv.innerHTML = output;
+}
+
+function filterLeeftijd(leeftijd, personenData) {
+    const gefilterdePersonen = personenData.filter(persoon => persoon.leeftijd > leeftijd);
+    toonGegevens(gefilterdePersonen);
 }
 
 laadGegevens();
